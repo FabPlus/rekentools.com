@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gratis online rekenmachines voor alle berekeningen. Basis rekenmachine, BTW berekenen, BMI calculator, procent en meer. Snel, nauwkeurig en makkelijk te delen.">
+    <meta name="keywords" content="rekenmachine, calculator, basis rekenmachine, online rekenen, BTW berekenen, BMI calculator, procent berekenen, fooi calculator, gratis rekenhulp">
+    <meta name="author" content="Rekentools">
+    <meta property="og:title" content="Rekentools - Gratis Online Rekenmachines">
+    <meta property="og:description" content="Alle rekenmachines die je nodig hebt op één plek. Basis calculator, BTW, BMI, Procent & Fooi calculator. Makkelijk te delen!">
+    <meta property="og:type" content="website">
+    <title>Rekentools - Gratis Online Rekenmachines | Basis, BTW, BMI, Procent & Fooi Calculator</title>
+    
+    <!-- Schema.org markup for better SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Rekentools",
+      "description": "Gratis online rekenmachines voor alle berekeningen",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0317839266001760"
+     crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #00ff9d;
+            --primary-dark: #00d682;
+            --secondary-color: #00ffcc;
+            --success-color: #00ff9d;
+            --bg-color: #0a0e1a;
+            --card-bg: #111827;
+            --text-color: #ffffff;
+            --text-light: #9ca3af;
+            --border-color: #1f2937;
+            --accent-glow: #00ff9d;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+            --glow: 0 0 20px rgba(0, 255, 157, 0.3);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0a0e1a 0%, #111827 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid var(--primary-color);
+            box-shadow: 0 4px 20px rgba(0, 255, 157, 0.2);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 255, 157, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 255, 157, 0.5);
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Social Share Section */
+        .share-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .share-title {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-color);
+            background: #1a1f2e;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 255, 157, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .share-btn::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--card-bg);
+            color: var(--primary-color);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            border: 1px solid var(--primary-color);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .share-btn:hover::after {
+            opacity: 1;
+        }
+
+        /* Individual social media colors */
+        .share-btn.facebook { background: linear-gradient(135deg, #1877f2 0%, #0d5dbd 100%); border-color: #1877f2; }
+        .share-btn.twitter { background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%); border-color: #000000; }
+        .share-btn.linkedin { background: linear-gradient(135deg, #0077b5 0%, #005885 100%); border-color: #0077b5; }
+        .share-btn.whatsapp { background: linear-gradient(135deg, #25d366 0%, #1da851 100%); border-color: #25d366; }
+        .share-btn.instagram { background: linear-gradient(135deg, #f58529 0%, #dd2a7b 50%, #8134af 100%); border-color: #dd2a7b; }
+        .share-btn.snapchat { background: linear-gradient(135deg, #fffc00 0%, #d4d400 100%); border-color: #fffc00; }
+        .share-btn.tiktok { background: linear-gradient(135deg, #000000 0%, #ff0050 50%, #00f2ea 100%); border-color: #00f2ea; }
+
+        .share-btn.facebook:hover { box-shadow: 0 10px 25px rgba(24, 119, 242, 0.5); }
+        .share-btn.twitter:hover { box-shadow: 0 10px 25px rgba(0, 255, 157, 0.5); }
+        .share-btn.linkedin:hover { box-shadow: 0 10px 25px rgba(0, 119, 181, 0.5); }
+        .share-btn.whatsapp:hover { box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5); }
+        .share-btn.instagram:hover { box-shadow: 0 10px 25px rgba(221, 42, 123, 0.5); }
+        .share-btn.snapchat:hover { box-shadow: 0 10px 25px rgba(255, 252, 0, 0.5); }
+        .share-btn.tiktok:hover { box-shadow: 0 10px 25px rgba(0, 242, 234, 0.5); }
+
+        /* Copy notification */
+        .copy-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: #0a0e1a;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.5);
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .copy-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .share-buttons {
+                gap: 0.75rem;
+            }
+
+            .share-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Ad Space */
+        .ad-space {
+            background: linear-gradient(135deg, #1a1f2e 0%, #111827 100%);
+            border: 2px dashed var(--primary-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.1);
+        }
+
+        /* Calculator Grid */
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        /* Calculator Card */
+        .calc-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .calc-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--primary-color), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .calc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg), var(--glow);
+        }
+
+        .calc-card:hover::before {
+            opacity: 1;
+        }
+
+        .calc-card.active {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 255, 157, 0.2);
+        }
+
+        .calc-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
+        }
+
+        .calc-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .calc-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Input Groups */
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #0a0e1a;
+            color: var(--text-color);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 255, 157, 0.2), 0 0 20px rgba(0, 255, 157, 0.1);
+        }
+
+        input:hover, select:hover {
+            border-color: var(--primary-dark);
+        }
+
+        /* Buttons - Form Submit Buttons */
+        button[type="submit"] {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: #0a0e1a;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+        }
+
+        button[type="submit"]::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            pointer-events: none;
+        }
+
+        button[type="submit"]:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.5);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        /* Result Display */
+        .result {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.1) 0%, rgba(0, 255, 204, 0.05) 100%);
+            border-left: 4px solid var(--success-color);
+            border-radius: 8px;
+            display: none;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--success-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+        }
+
+        .result-label {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .info-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-section h3 {
+            color: var(--text-color);
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .info-section p, .info-section li {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .info-section ul {
+            margin-left: 1.5rem;
+        }
+
+        .info-section li strong {
+            color: var(--primary-color);
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-item:hover {
+            transform: translateX(5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+        }
+
+        .faq-question {
+            font-weight: 700;
+            color: var(--text-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            margin-top: 1rem;
+            display: none;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0e1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            border-top: 2px solid var(--primary-color);
+            box-shadow: 0 -4px 20px rgba(0, 255, 157, 0.1);
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Standard Calculator Styles */
+        .calculator {
+            margin-top: 1rem;
+        }
+
+        .calc-display {
+            background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 100%);
+            color: var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: right;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            overflow-x: auto;
+            white-space: nowrap;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 157, 0.2);
+            border: 1px solid var(--border-color);
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) transparent;
+        }
+
+        .calc-display::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .calc-display::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .calc-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+        }
+
+        .calc-btn {
+            background: #1a1f2e;
+            border: 2px solid var(--border-color);
+            padding: 1rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            min-height: 60px;
+        }
+
+        .calc-btn:hover {
+            background: #232937;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 255, 157, 0.3);
+        }
+
+        .calc-btn:active {
+            transform: translateY(0);
+        }
+
+        .calc-btn-operator {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: #0a0e1a;
+            border-color: var(--primary-color);
+            font-weight: 800;
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+        }
+
+        .calc-btn-operator:hover {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            box-shadow: 0 0 25px rgba(0, 255, 157, 0.5);
+        }
+
+        .calc-btn-function {
+            background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+            color: var(--text-color);
+            border-color: #374151;
+        }
+
+        .calc-btn-function:hover {
+            background: linear-gradient(135deg, #475569 0%, #374151 100%);
+            border-color: var(--primary-color);
+        }
+
+        .calc-btn-equals {
+            background: linear-gradient(135deg, var(--success-color) 0%, #00d682 100%);
+            color: #0a0e1a;
+            border-color: var(--success-color);
+            font-weight: 800;
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+        }
+
+        .calc-btn-equals:hover {
+            background: linear-gradient(135deg, #00d682 0%, var(--success-color) 100%);
+            box-shadow: 0 0 25px rgba(0, 255, 157, 0.6);
+        }
+
+        .calc-btn-zero {
+            grid-column: span 2;
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Skip to main content */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: #0a0e1a;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+            font-weight: 700;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .calc-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* High Contrast Mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --border-color: var(--primary-color);
+                --text-light: #ffffff;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Spring naar hoofdinhoud</a>
+
+    <header role="banner">
+        <h1>🧮 Rekentools</h1>
+        <p class="subtitle">Jouw gratis online rekenhulp voor elke berekening</p>
+    </header>
+
+    <!-- Social Share Section -->
+    <div class="container">
+        <div class="share-section">
+            <div class="share-title">✨ Deel Rekentools met je vrienden</div>
+            <div class="share-buttons">
+                <a href="#" class="share-btn whatsapp" data-tooltip="WhatsApp" onclick="shareWhatsApp(event)" aria-label="Delen via WhatsApp">
+                    <span>💬</span>
+                </a>
+                <a href="#" class="share-btn facebook" data-tooltip="Facebook" onclick="shareFacebook(event)" aria-label="Delen via Facebook">
+                    <span>📘</span>
+                </a>
+                <a href="#" class="share-btn twitter" data-tooltip="X" onclick="shareTwitter(event)" aria-label="Delen via X">
+                    <span>✖️</span>
+                </a>
+                <a href="#" class="share-btn linkedin" data-tooltip="LinkedIn" onclick="shareLinkedIn(event)" aria-label="Delen via LinkedIn">
+                    <span>💼</span>
+                </a>
+                <a href="#" class="share-btn instagram" data-tooltip="Instagram" onclick="copyLink(event, 'Instagram')" aria-label="Link kopiëren voor Instagram">
+                    <span>📷</span>
+                </a>
+                <a href="#" class="share-btn snapchat" data-tooltip="Snapchat" onclick="copyLink(event, 'Snapchat')" aria-label="Link kopiëren voor Snapchat">
+                    <span>👻</span>
+                </a>
+                <a href="#" class="share-btn tiktok" data-tooltip="TikTok" onclick="copyLink(event, 'TikTok')" aria-label="Link kopiëren voor TikTok">
+                    <span>🎵</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copy Notification -->
+    <div class="copy-notification" id="copyNotification">
+        Link gekopieerd! Plak in je social media post.
+    </div>
+
+    <!-- Top Ad Space -->
+    <div class="container">
+        <div class="ad-space" role="complementary" aria-label="Advertentie">
+            <!-- Google AdSense Ad Unit - Top Banner -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-0317839266001760"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <main id="main-content" class="container" role="main">
+        <section aria-labelledby="calculators-heading">
+            <h2 id="calculators-heading" class="sr-only">Beschikbare Rekenmachines</h2>
+            
+            <div class="calc-grid">
+                <!-- Standard Calculator -->
+                <article class="calc-card" aria-labelledby="standard-title">
+                    <div class="calc-icon" aria-hidden="true">🔢</div>
+                    <h2 id="standard-title">Basis Rekenmachine</h2>
+                    <p>Klassieke rekenmachine voor dagelijkse berekeningen. Inclusief toetsenbord ondersteuning.</p>
+                    
+                    <div class="calculator" aria-label="Basis Rekenmachine">
+                        <div class="calc-display" id="calc-display" role="status" aria-live="polite" aria-atomic="true">0</div>
+                        
+                        <div class="calc-buttons">
+                            <button class="calc-btn calc-btn-function" onclick="clearCalc()" aria-label="Clear">C</button>
+                            <button class="calc-btn calc-btn-function" onclick="deleteCalc()" aria-label="Delete">←</button>
+                            <button class="calc-btn calc-btn-function" onclick="percentCalc()" aria-label="Percent">%</button>
+                            <button class="calc-btn calc-btn-operator" onclick="operatorCalc('/')" aria-label="Divide">÷</button>
+                            
+                            <button class="calc-btn" onclick="numberCalc('7')">7</button>
+                            <button class="calc-btn" onclick="numberCalc('8')">8</button>
+                            <button class="calc-btn" onclick="numberCalc('9')">9</button>
+                            <button class="calc-btn calc-btn-operator" onclick="operatorCalc('*')" aria-label="Multiply">×</button>
+                            
+                            <button class="calc-btn" onclick="numberCalc('4')">4</button>
+                            <button class="calc-btn" onclick="numberCalc('5')">5</button>
+                            <button class="calc-btn" onclick="numberCalc('6')">6</button>
+                            <button class="calc-btn calc-btn-operator" onclick="operatorCalc('-')" aria-label="Subtract">−</button>
+                            
+                            <button class="calc-btn" onclick="numberCalc('1')">1</button>
+                            <button class="calc-btn" onclick="numberCalc('2')">2</button>
+                            <button class="calc-btn" onclick="numberCalc('3')">3</button>
+                            <button class="calc-btn calc-btn-operator" onclick="operatorCalc('+')" aria-label="Add">+</button>
+                            
+                            <button class="calc-btn calc-btn-zero" onclick="numberCalc('0')">0</button>
+                            <button class="calc-btn" onclick="decimalCalc()">.</button>
+                            <button class="calc-btn calc-btn-equals" onclick="equalsCalc()" aria-label="Equals">=</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Percentage Calculator -->
+                <article class="calc-card" aria-labelledby="percent-title">
+                    <div class="calc-icon" aria-hidden="true">📊</div>
+                    <h2 id="percent-title">Procent Berekenen</h2>
+                    <p>Bereken percentages, kortingen en verhogingen in een handomdraai.</p>
+                    
+                    <form onsubmit="calculatePercent(event)" aria-label="Percentage Calculator Formulier">
+                        <div class="input-group">
+                            <label for="percent-base">Basisbedrag</label>
+                            <input type="number" id="percent-base" step="0.01" min="0" max="1000000000" required 
+                                   aria-required="true" placeholder="100">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="percent-rate">Percentage (%)</label>
+                            <input type="number" id="percent-rate" step="0.01" min="0" max="1000" required 
+                                   aria-required="true" placeholder="15">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="percent-type">Berekening</label>
+                            <select id="percent-type" aria-required="true">
+                                <option value="of">Percentage van bedrag</option>
+                                <option value="increase">Bedrag verhogen met %</option>
+                                <option value="decrease">Bedrag verlagen met %</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit">Berekenen</button>
+                    </form>
+                    
+                    <div class="result" id="percent-result" role="status" aria-live="polite">
+                        <div class="result-value" id="percent-value"></div>
+                        <div class="result-label" id="percent-label"></div>
+                    </div>
+                </article>
+
+                <!-- BMI Calculator -->
+                <article class="calc-card" aria-labelledby="bmi-title">
+                    <div class="calc-icon" aria-hidden="true">⚖️</div>
+                    <h2 id="bmi-title">BMI Calculator</h2>
+                    <p>Bereken je Body Mass Index en ontdek of je een gezond gewicht hebt.</p>
+                    
+                    <form onsubmit="calculateBMI(event)" aria-label="BMI Calculator Formulier">
+                        <div class="input-group">
+                            <label for="bmi-weight">Gewicht (kg)</label>
+                            <input type="number" id="bmi-weight" step="0.1" min="1" max="500" required 
+                                   aria-required="true" placeholder="75">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="bmi-height">Lengte (cm)</label>
+                            <input type="number" id="bmi-height" step="0.1" min="50" max="300" required 
+                                   aria-required="true" placeholder="175">
+                        </div>
+                        
+                        <button type="submit">Berekenen</button>
+                    </form>
+                    
+                    <div class="result" id="bmi-result" role="status" aria-live="polite">
+                        <div class="result-value" id="bmi-value"></div>
+                        <div class="result-label" id="bmi-label"></div>
+                    </div>
+                </article>
+
+                <!-- In-Feed Ad Space (Between Calculators) -->
+                <div class="ad-space" role="complementary" aria-label="Advertentie" style="margin: 2rem 0;">
+                    <!-- Google AdSense Ad Unit - In-Feed -->
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-0317839266001760"
+                        data-ad-slot="4567890123"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-fb+5w+4e-db+86"
+                        data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <!-- BTW Calculator -->
+                <article class="calc-card" aria-labelledby="btw-title">
+                    <div class="calc-icon" aria-hidden="true">💶</div>
+                    <h2 id="btw-title">BTW Berekenen</h2>
+                    <p>Bereken snel en eenvoudig BTW bij of af. Perfect voor ondernemers en freelancers.</p>
+                    
+                    <form onsubmit="calculateVAT(event)" aria-label="BTW Calculator Formulier">
+                        <div class="input-group">
+                            <label for="vat-amount">Bedrag (€)</label>
+                            <input type="number" id="vat-amount" step="0.01" min="0.01" max="1000000000" required 
+                                   aria-required="true" placeholder="100.00">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="vat-rate">BTW Tarief</label>
+                            <select id="vat-rate" aria-required="true">
+                                <option value="21">21% (Hoog tarief)</option>
+                                <option value="9">9% (Laag tarief)</option>
+                                <option value="0">0% (Vrijgesteld)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="vat-type">Berekening</label>
+                            <select id="vat-type" aria-required="true">
+                                <option value="add">BTW erbij optellen</option>
+                                <option value="subtract">BTW eraf halen</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit">Berekenen</button>
+                    </form>
+                    
+                    <div class="result" id="vat-result" role="status" aria-live="polite">
+                        <div class="result-value" id="vat-value"></div>
+                        <div class="result-label" id="vat-label"></div>
+                    </div>
+                </article>
+
+                <!-- Tip Calculator -->
+                <article class="calc-card" aria-labelledby="tip-title">
+                    <div class="calc-icon" aria-hidden="true">🍽️</div>
+                    <h2 id="tip-title">Fooi Calculator</h2>
+                    <p>Bereken de fooi en verdeel de rekening eerlijk onder vrienden.</p>
+                    
+                    <form onsubmit="calculateTip(event)" aria-label="Fooi Calculator Formulier">
+                        <div class="input-group">
+                            <label for="tip-bill">Totale rekening (€)</label>
+                            <input type="number" id="tip-bill" step="0.01" min="0.01" max="100000" required 
+                                   aria-required="true" placeholder="85.50">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="tip-percent">Fooi percentage (%)</label>
+                            <input type="number" id="tip-percent" step="1" min="0" max="100" required 
+                                   aria-required="true" placeholder="10" value="10">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="tip-people">Aantal personen</label>
+                            <input type="number" id="tip-people" min="1" max="100" required 
+                                   aria-required="true" placeholder="4" value="1">
+                        </div>
+                        
+                        <button type="submit">Berekenen</button>
+                    </form>
+                    
+                    <div class="result" id="tip-result" role="status" aria-live="polite">
+                        <div class="result-value" id="tip-value"></div>
+                        <div class="result-label" id="tip-label"></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Middle Ad Space -->
+        <div class="ad-space" role="complementary" aria-label="Advertentie">
+            <!-- Google AdSense Ad Unit - Middle Banner -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-0317839266001760"
+                data-ad-slot="2345678901"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Info Section -->
+        <section class="info-section" aria-labelledby="why-use-heading">
+            <h2 id="why-use-heading">Waarom Rekentools gebruiken?</h2>
+            <p>Rekentools is jouw gratis, betrouwbare online rekenhulp voor alle dagelijkse berekeningen. Of je nu een eenvoudige som wilt maken met onze basis rekenmachine, BTW moet berekenen voor je administratie, je BMI wilt checken, of gewoon snel een percentage moet uitrekenen - wij hebben de juiste calculator voor jou. Deel Rekentools makkelijk met vrienden en collega's via social media!</p>
+            
+            <h3>✨ Voordelen van onze calculators</h3>
+            <ul>
+                <li><strong>100% Gratis:</strong> Alle calculators zijn volledig gratis te gebruiken, zonder verborgen kosten</li>
+                <li><strong>Nauwkeurig:</strong> Onze berekeningen zijn gebaseerd op actuele formules en tarieven</li>
+                <li><strong>Gebruiksvriendelijk:</strong> Intuïtieve interface die iedereen kan gebruiken</li>
+                <li><strong>Snel:</strong> Directe resultaten zonder wachttijd</li>
+                <li><strong>Mobiel:</strong> Werkt perfect op alle apparaten - smartphone, tablet en desktop</li>
+                <li><strong>Privacy:</strong> Je gegevens worden niet opgeslagen of gedeeld</li>
+                <li><strong>Makkelijk delen:</strong> Deel Rekentools eenvoudig via social media met vrienden en collega's</li>
+            </ul>
+
+            <h3>🎯 Voor wie zijn deze calculators?</h3>
+            <p>Onze rekenmachines zijn ontwikkeld voor iedereen die regelmatig berekeningen moet maken:</p>
+            <ul>
+                <li><strong>Ondernemers & ZZP'ers:</strong> BTW berekeningen, financiële planning</li>
+                <li><strong>Studenten:</strong> Wiskundige en financiële berekeningen, percentage berekeningen</li>
+                <li><strong>Particulieren:</strong> Dagelijkse berekeningen zoals percentages, kortingen en fooien</li>
+                <li><strong>Gezondheid bewust:</strong> BMI berekenen en fitness doelen monitoren</li>
+                <li><strong>Horeca bezoekers:</strong> Fooien berekenen en rekeningen eerlijk verdelen</li>
+            </ul>
+
+            <h3>🔒 Privacy en veiligheid</h3>
+            <p>Bij Rekentools nemen we je privacy serieus. Alle berekeningen worden lokaal in je browser uitgevoerd. We slaan geen persoonlijke gegevens op en delen niets met derden. Je kunt onze calculators met een gerust hart gebruiken.</p>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="info-section" aria-labelledby="faq-heading">
+            <h2 id="faq-heading">Veelgestelde Vragen</h2>
+            
+            <div class="faq-item" onclick="toggleFAQ(this)" role="button" tabindex="0" aria-expanded="false">
+                <div class="faq-question">
+                    <span>Zijn de calculators echt gratis?</span>
+                    <span class="faq-icon" aria-hidden="true">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Ja, absoluut! Alle calculators op Rekentools zijn 100% gratis te gebruiken. Je kunt onbeperkt berekeningen maken zonder te betalen. We verdienen aan advertenties, zodat de service voor jou gratis kan blijven.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)" role="button" tabindex="0" aria-expanded="false">
+                <div class="faq-question">
+                    <span>Zijn de berekeningen nauwkeurig?</span>
+                    <span class="faq-icon" aria-hidden="true">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Ja, onze calculators gebruiken de juiste wiskundige formules en actuele tarieven (zoals BTW percentages). We testen alle berekeningen uitgebreid. Houd er rekening mee dat resultaten zoals hypotheekberekeningen indicatief zijn - raadpleeg altijd een professional voor definitief advies.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)" role="button" tabindex="0" aria-expanded="false">
+                <div class="faq-question">
+                    <span>Werkt het ook op mijn smartphone?</span>
+                    <span class="faq-icon" aria-hidden="true">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Zeker! Rekentools is volledig responsive en werkt perfect op alle apparaten - van smartphone tot desktop. De website past zich automatisch aan je schermgrootte aan voor optimaal gebruiksgemak.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)" role="button" tabindex="0" aria-expanded="false">
+                <div class="faq-question">
+                    <span>Worden mijn gegevens opgeslagen?</span>
+                    <span class="faq-icon" aria-hidden="true">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Nee, je privacy is gewaarborgd. Alle berekeningen gebeuren lokaal in je browser. We slaan geen persoonlijke gegevens of berekeningsresultaten op onze servers. Zodra je de pagina sluit, zijn alle gegevens weg.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)" role="button" tabindex="0" aria-expanded="false">
+                <div class="faq-question">
+                    <span>Welke BTW tarieven worden gebruikt?</span>
+                    <span class="faq-icon" aria-hidden="true">▼</span>
+                </div>
+                <div class="faq-answer">
+                    We gebruiken de actuele Nederlandse BTW tarieven: 21% (hoog tarief) en 9% (laag tarief). Deze tarieven zijn van toepassing per 2026. Controleer altijd de Belastingdienst website voor de meest recente informatie.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)" role="button" tabindex="0" aria-expanded="false">
+                <div class="faq-question">
+                    <span>Kan ik de calculator ook offline gebruiken?</span>
+                    <span class="faq-icon" aria-hidden="true">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Zodra de pagina is geladen, werken alle calculators zonder internetverbinding. De berekeningen gebeuren in je browser, dus je hebt geen actieve verbinding nodig om te rekenen.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)" role="button" tabindex="0" aria-expanded="false">
+                <div class="faq-question">
+                    <span>Kan ik de basis rekenmachine met mijn toetsenbord bedienen?</span>
+                    <span class="faq-icon" aria-hidden="true">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Ja! De basis rekenmachine ondersteunt volledige toetsenbord bediening. Gebruik cijfertoetsen (0-9) voor nummers, +, -, *, / voor bewerkingen, Enter of = voor resultaat, Escape of C om te wissen, en Backspace om het laatste cijfer te verwijderen.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)" role="button" tabindex="0" aria-expanded="false">
+                <div class="faq-question">
+                    <span>Hoe kan ik Rekentools met anderen delen?</span>
+                    <span class="faq-icon" aria-hidden="true">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Gebruik de social media knoppen bovenaan de pagina om Rekentools te delen via WhatsApp, Facebook, X (Twitter), LinkedIn, Instagram, Snapchat of TikTok. Voor Instagram, Snapchat en TikTok wordt de link automatisch gekopieerd die je in je post kunt plakken.
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Ad Space -->
+        <div class="ad-space" role="complementary" aria-label="Advertentie">
+            <!-- Google AdSense Ad Unit - Bottom Banner -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-0317839266001760"
+                data-ad-slot="3456789012"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2026 Rekentools - Gratis Online Rekenmachines</p>
+        <p>Alle berekeningen zijn indicatief. Raadpleeg een professional voor definitief advies.</p>
+    </footer>
+
+    <script>
+        // Social Media Sharing Functions
+        const pageUrl = encodeURIComponent(window.location.href);
+        const shareText = encodeURIComponent('Check deze gratis online rekenmachines! 🧮 Basis calculator, BTW, BMI, Procent & meer - Rekentools');
+
+        function shareWhatsApp(event) {
+            event.preventDefault();
+            const whatsappUrl = `https://wa.me/?text=${shareText}%20${pageUrl}`;
+            window.open(whatsappUrl, '_blank', 'width=600,height=400');
+        }
+
+        function shareFacebook(event) {
+            event.preventDefault();
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+            window.open(facebookUrl, '_blank', 'width=600,height=400');
+        }
+
+        function shareTwitter(event) {
+            event.preventDefault();
+            const twitterUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${shareText}`;
+            window.open(twitterUrl, '_blank', 'width=600,height=400');
+        }
+
+        function shareLinkedIn(event) {
+            event.preventDefault();
+            const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+            window.open(linkedinUrl, '_blank', 'width=600,height=400');
+        }
+
+        function copyLink(event, platform) {
+            event.preventDefault();
+            const url = window.location.href;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(url).then(() => {
+                showCopyNotification();
+            }).catch(err => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = url;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showCopyNotification();
+                } catch (err) {
+                    console.error('Failed to copy:', err);
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+
+        function showCopyNotification() {
+            const notification = document.getElementById('copyNotification');
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Standard Calculator Variables
+        let calcCurrentValue = '0';
+        let calcPreviousValue = '';
+        let calcOperation = null;
+        let calcShouldResetDisplay = false;
+
+        // Standard Calculator Functions
+        function updateCalcDisplay() {
+            const display = document.getElementById('calc-display');
+            display.textContent = calcCurrentValue;
+        }
+
+        function numberCalc(num) {
+            // Auto-clear error state when user types new number
+            if (calcCurrentValue === 'Error') {
+                calcCurrentValue = '0';
+            }
+            
+            if (calcCurrentValue === '0' || calcShouldResetDisplay) {
+                calcCurrentValue = num;
+                calcShouldResetDisplay = false;
+            } else {
+                if (calcCurrentValue.length < 12) {
+                    calcCurrentValue += num;
+                }
+            }
+            updateCalcDisplay();
+        }
+
+        function operatorCalc(op) {
+            if (calcOperation !== null && !calcShouldResetDisplay) {
+                equalsCalc();
+            }
+            calcPreviousValue = calcCurrentValue;
+            calcOperation = op;
+            calcShouldResetDisplay = true;
+        }
+
+        function equalsCalc() {
+            if (calcOperation === null || calcShouldResetDisplay) return;
+            
+            const prev = parseFloat(calcPreviousValue);
+            const current = parseFloat(calcCurrentValue);
+            let result;
+
+            switch (calcOperation) {
+                case '+':
+                    result = prev + current;
+                    break;
+                case '-':
+                    result = prev - current;
+                    break;
+                case '*':
+                    result = prev * current;
+                    break;
+                case '/':
+                    result = current !== 0 ? prev / current : 'Error';
+                    break;
+                default:
+                    return;
+            }
+
+            calcCurrentValue = result === 'Error' ? 'Error' : String(Math.round(result * 100000000) / 100000000);
+            calcOperation = null;
+            calcPreviousValue = '';
+            calcShouldResetDisplay = true;
+            updateCalcDisplay();
+        }
+
+        function clearCalc() {
+            calcCurrentValue = '0';
+            calcPreviousValue = '';
+            calcOperation = null;
+            calcShouldResetDisplay = false;
+            updateCalcDisplay();
+        }
+
+        function deleteCalc() {
+            if (calcCurrentValue.length > 1) {
+                calcCurrentValue = calcCurrentValue.slice(0, -1);
+            } else {
+                calcCurrentValue = '0';
+            }
+            updateCalcDisplay();
+        }
+
+        function decimalCalc() {
+            if (calcShouldResetDisplay) {
+                calcCurrentValue = '0';
+                calcShouldResetDisplay = false;
+            }
+            if (!calcCurrentValue.includes('.')) {
+                calcCurrentValue += '.';
+            }
+            updateCalcDisplay();
+        }
+
+        function percentCalc() {
+            calcCurrentValue = String(parseFloat(calcCurrentValue) / 100);
+            updateCalcDisplay();
+        }
+
+        // Keyboard support for calculator
+        // IMPORTANT: Only trigger when user is NOT typing in input/select fields
+        document.addEventListener('keydown', function(e) {
+            // Don't interfere with form inputs!
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') {
+                return;
+            }
+            
+            if (e.key >= '0' && e.key <= '9') {
+                numberCalc(e.key);
+            } else if (e.key === '.') {
+                decimalCalc();
+            } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+                operatorCalc(e.key);
+            } else if (e.key === 'Enter' || e.key === '=') {
+                e.preventDefault();
+                equalsCalc();
+            } else if (e.key === 'Escape' || e.key === 'c' || e.key === 'C') {
+                clearCalc();
+            } else if (e.key === 'Backspace') {
+                e.preventDefault();
+                deleteCalc();
+            } else if (e.key === '%') {
+                percentCalc();
+            }
+        });
+
+        // VAT Calculator
+        function calculateVAT(event) {
+            event.preventDefault();
+            const amount = parseFloat(document.getElementById('vat-amount').value);
+            const rate = parseFloat(document.getElementById('vat-rate').value) / 100;
+            const type = document.getElementById('vat-type').value;
+            
+            // Input validation
+            if (isNaN(amount)) {
+                alert('Voer een geldig bedrag in.');
+                return;
+            }
+            
+            if (amount <= 0) {
+                alert('Bedrag moet een positieve waarde zijn.');
+                return;
+            }
+            
+            if (amount > 1000000000) {
+                alert('Bedrag is te groot. Maximaal €1.000.000.000.');
+                return;
+            }
+            
+            let result, vatAmount, total;
+            
+            // Format with Dutch number formatting
+            const formatEuro = (amount) => {
+                return '€' + amount.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            };
+            
+            if (type === 'add') {
+                vatAmount = amount * rate;
+                total = amount + vatAmount;
+                result = formatEuro(total);
+                document.getElementById('vat-label').textContent = `Inclusief ${formatEuro(vatAmount)} BTW`;
+            } else {
+                total = amount / (1 + rate);
+                vatAmount = amount - total;
+                result = formatEuro(total);
+                document.getElementById('vat-label').textContent = `Exclusief ${formatEuro(vatAmount)} BTW`;
+            }
+            
+            document.getElementById('vat-value').textContent = result;
+            document.getElementById('vat-result').classList.add('show');
+        }
+
+        // BMI Calculator
+        function calculateBMI(event) {
+            event.preventDefault();
+            const weight = parseFloat(document.getElementById('bmi-weight').value);
+            const height = parseFloat(document.getElementById('bmi-height').value);
+            
+            // Input validation
+            if (isNaN(weight) || isNaN(height)) {
+                alert('Voer geldige getallen in voor gewicht en lengte.');
+                return;
+            }
+            
+            if (weight <= 0 || height <= 0) {
+                alert('Gewicht en lengte moeten positieve waarden zijn.');
+                return;
+            }
+            
+            if (weight > 500) {
+                alert('Gewicht lijkt onrealistisch hoog. Controleer je invoer.');
+                return;
+            }
+            
+            if (height > 300 || height < 50) {
+                alert('Lengte moet tussen 50 en 300 cm zijn.');
+                return;
+            }
+            
+            const heightInMeters = height / 100; // convert to meters
+            const bmi = weight / (heightInMeters * heightInMeters);
+            let category;
+            
+            if (bmi < 18.5) category = 'Ondergewicht';
+            else if (bmi < 25) category = 'Normaal gewicht';
+            else if (bmi < 30) category = 'Overgewicht';
+            else category = 'Obesitas';
+            
+            document.getElementById('bmi-value').textContent = bmi.toFixed(1);
+            document.getElementById('bmi-label').textContent = `Categorie: ${category}`;
+            document.getElementById('bmi-result').classList.add('show');
+        }
+
+        // Percentage Calculator
+        function calculatePercent(event) {
+            event.preventDefault();
+            const base = parseFloat(document.getElementById('percent-base').value);
+            const rate = parseFloat(document.getElementById('percent-rate').value);
+            const type = document.getElementById('percent-type').value;
+            
+            // Input validation
+            if (isNaN(base) || isNaN(rate)) {
+                alert('Voer geldige getallen in voor alle velden.');
+                return;
+            }
+            
+            if (base < 0 || rate < 0) {
+                alert('Bedrag en percentage kunnen niet negatief zijn.');
+                return;
+            }
+            
+            if (base > 1000000000 || rate > 1000) {
+                alert('Waarden zijn te groot. Controleer je invoer.');
+                return;
+            }
+            
+            const rateDecimal = rate / 100;
+            let result, label;
+            
+            // Format with Dutch number formatting
+            const formatEuro = (amount) => {
+                return '€' + amount.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            };
+            
+            if (type === 'of') {
+                result = base * rateDecimal;
+                label = `${rate.toFixed(2)}% van ${formatEuro(base)}`;
+            } else if (type === 'increase') {
+                result = base * (1 + rateDecimal);
+                label = `${formatEuro(base)} + ${rate.toFixed(2)}%`;
+            } else {
+                result = base * (1 - rateDecimal);
+                label = `${formatEuro(base)} - ${rate.toFixed(2)}%`;
+            }
+            
+            document.getElementById('percent-value').textContent = formatEuro(result);
+            document.getElementById('percent-label').textContent = label;
+            document.getElementById('percent-result').classList.add('show');
+        }
+
+        // Tip Calculator
+        function calculateTip(event) {
+            event.preventDefault();
+            const bill = parseFloat(document.getElementById('tip-bill').value);
+            const tipPercent = parseFloat(document.getElementById('tip-percent').value);
+            const people = parseInt(document.getElementById('tip-people').value);
+            
+            // Input validation
+            if (isNaN(bill) || isNaN(tipPercent) || isNaN(people)) {
+                alert('Voer geldige getallen in voor alle velden.');
+                return;
+            }
+            
+            if (bill <= 0) {
+                alert('Rekening moet een positief bedrag zijn.');
+                return;
+            }
+            
+            if (tipPercent < 0 || tipPercent > 100) {
+                alert('Fooi percentage moet tussen 0% en 100% zijn.');
+                return;
+            }
+            
+            if (people <= 0) {
+                alert('Aantal personen moet minimaal 1 zijn.');
+                return;
+            }
+            
+            if (people > 100) {
+                alert('Aantal personen lijkt onrealistisch hoog. Controleer je invoer.');
+                return;
+            }
+            
+            const tipPercentDecimal = tipPercent / 100;
+            const tipAmount = bill * tipPercentDecimal;
+            const total = bill + tipAmount;
+            const perPerson = total / people;
+            
+            // Format with Dutch number formatting
+            const formatEuro = (amount) => {
+                return '€' + amount.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            };
+            
+            document.getElementById('tip-value').textContent = `${formatEuro(perPerson)} per persoon`;
+            document.getElementById('tip-label').textContent = 
+                `Totaal: ${formatEuro(total)} (incl. ${formatEuro(tipAmount)} fooi)`;
+            document.getElementById('tip-result').classList.add('show');
+        }
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const wasActive = element.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.setAttribute('aria-expanded', 'false');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!wasActive) {
+                element.classList.add('active');
+                element.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        // Hide results when user modifies inputs (better UX)
+        // Percentage calculator
+        ['percent-base', 'percent-rate', 'percent-type'].forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.addEventListener('input', () => {
+                    document.getElementById('percent-result').classList.remove('show');
+                });
+            }
+        });
+
+        // BMI calculator
+        ['bmi-weight', 'bmi-height'].forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.addEventListener('input', () => {
+                    document.getElementById('bmi-result').classList.remove('show');
+                });
+            }
+        });
+
+        // BTW calculator
+        ['vat-amount', 'vat-rate', 'vat-type'].forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.addEventListener('input', () => {
+                    document.getElementById('vat-result').classList.remove('show');
+                });
+            }
+        });
+
+        // Fooi calculator
+        ['tip-bill', 'tip-percent', 'tip-people'].forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.addEventListener('input', () => {
+                    document.getElementById('tip-result').classList.remove('show');
+                });
+            }
+        });
+
+        // Keyboard accessibility for FAQ
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleFAQ(this);
+                }
+            });
+        });
+
+        // Add focus visible for better keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-nav');
+        });
+    </script>
+</body>
+</html>
